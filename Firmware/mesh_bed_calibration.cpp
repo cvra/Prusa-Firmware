@@ -106,6 +106,7 @@ const float bed_ref_points[] PROGMEM = {
 
 // Positions of the bed reference points in the machine coordinates, referenced to the P.I.N.D.A sensor.
 // The points are the following: center front, center right, center rear, center left.
+// have to change these value
 const float bed_ref_points_4[] PROGMEM = {
 	115.f - BED_ZERO_REF_X,   8.4f - BED_ZERO_REF_Y,
 	216.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,

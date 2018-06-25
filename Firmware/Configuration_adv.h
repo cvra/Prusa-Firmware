@@ -134,7 +134,7 @@
 // On a RAMPS (or other 5 driver) motherboard, using this feature will limit you to using 1 extruder.
 //#define Z_DUAL_STEPPER_DRIVERS
 
-#ifdef Z_DUAL_STEPPER_DRIVERS
+//#ifdef Z_DUAL_STEPPER_DRIVERS
   #undef EXTRUDERS
   #define EXTRUDERS 1
 #endif
@@ -283,7 +283,7 @@
 #define BABYSTEPPING
 #ifdef BABYSTEPPING
   #define BABYSTEP_XY  //not only z, but also XY in the menu. more clutter, more functions
-  #define BABYSTEP_INVERT_Z 0  //1 for inverse movements in Z
+  #define BABYSTEP_INVERT_Z 1  //1 for inverse movements in Z
   #define BABYSTEP_Z_MULTIPLICATOR 2 //faster z movements
 
   #ifdef COREXY
