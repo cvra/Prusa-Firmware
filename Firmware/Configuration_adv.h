@@ -134,7 +134,7 @@
 // On a RAMPS (or other 5 driver) motherboard, using this feature will limit you to using 1 extruder.
 //#define Z_DUAL_STEPPER_DRIVERS
 
-//#ifdef Z_DUAL_STEPPER_DRIVERS
+#ifdef Z_DUAL_STEPPER_DRIVERS
   #undef EXTRUDERS
   #define EXTRUDERS 1
 #endif

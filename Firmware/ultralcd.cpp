@@ -2267,8 +2267,8 @@ static void lcd_menu_xyz_skew()
 //|01234567890123456789|
 //|Measured skew:  N/A |
 //|--------------------|
-//|Slight skew:   0.12°|
-//|Severe skew:   0.25°|
+//|Slight skew:   0.12ï¿½|
+//|Severe skew:   0.25ï¿½|
 //----------------------
     float angleDiff = eeprom_read_float((float*)(EEPROM_XYZ_CAL_SKEW));
 	lcd_printf_P(_N(
@@ -6279,7 +6279,7 @@ static bool lcd_selfcheck_axis_sg(char axis) {
 	float axis_length, current_position_init, current_position_final;
 	float measured_axis_length[2];
 	float margin = 60;
-	float max_error_mm = 5;
+	float max_error_mm = 40;
 	switch (axis) {
 	case 0: axis_length = X_MAX_POS; break;
 	case 1: axis_length = Y_MAX_POS + 8; break;
