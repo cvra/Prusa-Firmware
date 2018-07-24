@@ -6344,6 +6344,11 @@ static bool lcd_selfcheck_axis_sg(char axis) {
 
 	measured_axis_length[1] = abs(current_position_final - current_position_init);
 
+// Go back slightly so we don't stay at the limit of the axis
+	current_position[axis] += margin;
+	plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[3], manual_feedrate[0] / 60, active_extruder);		
+	st_synchronize();
+
 
 //end of second measurement, now check for possible errors:
 
