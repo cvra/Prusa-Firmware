@@ -6138,7 +6138,7 @@ bool lcd_selftest()
 	if (_result)
 	{
 		_progress = lcd_selftest_screen(3, _progress, 3, true, 1000);
-		_result = lcd_selfcheck_check_heater(false);
+		//_result = lcd_selfcheck_check_heater(false);
 	}
 
 
@@ -6147,7 +6147,7 @@ bool lcd_selftest()
 		//current_position[Z_AXIS] += 15;									//move Z axis higher to avoid false triggering of Z end stop in case that we are very low - just above heatbed
 		_progress = lcd_selftest_screen(4, _progress, 3, true, 2000);
 #ifdef TMC2130
-		_result = lcd_selfcheck_axis_sg(X_AXIS);
+		//_result = lcd_selfcheck_axis_sg(X_AXIS);
 #else
 		_result = lcd_selfcheck_axis(X_AXIS, X_MAX_POS);
 #endif //TMC2130
@@ -6167,7 +6167,7 @@ bool lcd_selftest()
 	{
 		_progress = lcd_selftest_screen(5, _progress, 3, true, 1500);
 #ifdef TMC2130
-		_result = lcd_selfcheck_axis_sg(Y_AXIS);
+		//_result = lcd_selfcheck_axis_sg(Y_AXIS);
 #else
 		_result = lcd_selfcheck_axis(Y_AXIS, Y_MAX_POS);
 #endif // TMC2130
@@ -7010,7 +7010,7 @@ static int lcd_selftest_screen(int _step, int _progress, int _progress_scale, bo
 	{
 		//SERIAL_ECHOLNPGM("Other tests");
 		_step_block = 3;
-		lcd_selftest_screen_step(3, 9, ((_step == _step_block) ? 1 : (_step < _step_block) ? 0 : 2), "Hotend", _indicator);
+		// lcd_selftest_screen_step(3, 9, ((_step == _step_block) ? 1 : (_step < _step_block) ? 0 : 2), "Hotend", _indicator);
 
 		_step_block = 4;
 		lcd_selftest_screen_step(2, 2, ((_step == _step_block) ? 1 : (_step < _step_block) ? 0 : 2), "X", _indicator);
