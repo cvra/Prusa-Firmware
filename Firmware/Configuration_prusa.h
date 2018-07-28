@@ -39,9 +39,9 @@
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,560}
 
 // Endstop inverting
-#define X_MIN_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
+#define X_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
 
 // Direction inverting
 #define INVERT_X_DIR 1    // for Mendel set to 0, for Orca set to 1
@@ -245,7 +245,7 @@
 #define TMC2130_SG_HOMING       1     // stallguard homing
 #define TMC2130_SG_THRS_X       2     // stallguard sensitivity for X axis
 #define TMC2130_SG_THRS_Y       3     // stallguard sensitivity for Y axis
-#define TMC2130_SG_THRS_Z       8    // stallguard sensitivity for Z axis
+#define TMC2130_SG_THRS_Z       16    // stallguard sensitivity for Z axis
 #define TMC2130_SG_THRS_E       3     // stallguard sensitivity for E axis
 
 //new settings is possible for vsense = 1, running current value > 31 set vsense to zero and shift both currents by 1 bit right (Z axis only)

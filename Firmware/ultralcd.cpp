@@ -6147,7 +6147,7 @@ bool lcd_selftest()
 		//current_position[Z_AXIS] += 15;									//move Z axis higher to avoid false triggering of Z end stop in case that we are very low - just above heatbed
 		_progress = lcd_selftest_screen(4, _progress, 3, true, 2000);
 #ifdef TMC2130
-		//_result = lcd_selfcheck_axis_sg(X_AXIS);
+		_result = lcd_selfcheck_axis_sg(X_AXIS);
 #else
 		_result = lcd_selfcheck_axis(X_AXIS, X_MAX_POS);
 #endif //TMC2130
@@ -6167,7 +6167,7 @@ bool lcd_selftest()
 	{
 		_progress = lcd_selftest_screen(5, _progress, 3, true, 1500);
 #ifdef TMC2130
-		//_result = lcd_selfcheck_axis_sg(Y_AXIS);
+		_result = lcd_selfcheck_axis_sg(Y_AXIS);
 #else
 		_result = lcd_selfcheck_axis(Y_AXIS, Y_MAX_POS);
 #endif // TMC2130
@@ -6187,8 +6187,8 @@ bool lcd_selftest()
 #ifdef TMC2130
 		tmc2130_home_exit();
 		enable_endstops(false);
-		current_position[X_AXIS] = current_position[X_AXIS] + 14;
-		current_position[Y_AXIS] = current_position[Y_AXIS] + 12;
+		current_position[X_AXIS] = current_position[X_AXIS] + 140;
+		current_position[Y_AXIS] = current_position[Y_AXIS] + 120;
 #endif
 
 		//homeaxis(X_AXIS);
@@ -6207,31 +6207,31 @@ bool lcd_selftest()
 #ifdef TMC2130
 	if (_result)
 	{
-		current_position[Z_AXIS] = current_position[Z_AXIS] + 10;
-		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[3], manual_feedrate[0] / 60, active_extruder);
-		st_synchronize();
-		_progress = lcd_selftest_screen(13, 0, 2, true, 0);
-		bool bres = tmc2130_home_calibrate(X_AXIS);
-		_progress = lcd_selftest_screen(13, 1, 2, true, 0);
-		bres &= tmc2130_home_calibrate(Y_AXIS);
-		_progress = lcd_selftest_screen(13, 2, 2, true, 0);
-		if (bres)
-			eeprom_update_byte((uint8_t*)EEPROM_TMC2130_HOME_ENABLED, 1);
-		_result = bres;
+		//current_position[Z_AXIS] = current_position[Z_AXIS] + 10;
+		//plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[3], manual_feedrate[0] / 60, active_extruder);
+		//st_synchronize();
+		//_progress = lcd_selftest_screen(13, 0, 2, true, 0);
+		//bool bres = tmc2130_home_calibrate(X_AXIS);
+		//_progress = lcd_selftest_screen(13, 1, 2, true, 0);
+		//bres &= tmc2130_home_calibrate(Y_AXIS);
+		//_progress = lcd_selftest_screen(13, 2, 2, true, 0);
+		//if (bres)
+		//	eeprom_update_byte((uint8_t*)EEPROM_TMC2130_HOME_ENABLED, 1);
+		//_result = bres;
 	}
 #endif //TMC2130
 
 	if (_result)
 	{
 		_progress = lcd_selftest_screen(7, _progress, 3, true, 2000); //check bed
-		_result = lcd_selfcheck_check_heater(true);
+		//_result = lcd_selfcheck_check_heater(true);
 	}
 	if (_result)
 	{
 		_progress = lcd_selftest_screen(8, _progress, 3, true, 2000); //bed ok
 #ifdef PAT9125
 		_progress = lcd_selftest_screen(9, _progress, 3, true, 2000); //check filaments sensor
-		_result = lcd_selftest_fsensor();
+		//_result = lcd_selftest_fsensor();
 #endif // PAT9125
 	}
 	if (_result)
