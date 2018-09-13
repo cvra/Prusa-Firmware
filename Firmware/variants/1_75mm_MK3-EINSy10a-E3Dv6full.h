@@ -35,18 +35,18 @@
 
 // Steps per unit {X,Y,Z,E}
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,140}
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,280}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {152.381,152.381,3200,280}
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,560}
 
 // Endstop inverting
-#define X_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
+#define X_MIN_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
 
 // Direction inverting
 #define INVERT_X_DIR 1    // for Mendel set to 0, for Orca set to 1
 #define INVERT_Y_DIR 0    // for Mendel set to 1, for Orca set to 0
-#define INVERT_Z_DIR 1     // for Mendel set to 0, for Orca set to 1
+#define INVERT_Z_DIR 0     // for Mendel set to 0, for Orca set to 1
 #define INVERT_E0_DIR 0   // for direct drive extruder v9 set to 1, for geared extruder set to 0
 #define INVERT_E1_DIR 0    // for direct drive extruder v9 set to 1, for geared extruder set to 0
 #define INVERT_E2_DIR 0   // for direct drive extruder v9 set to 1, for geared extruder set to 0
@@ -57,11 +57,11 @@
 #define MANUAL_Z_HOME_POS 0.2
 
 // Travel limits after homing
-#define X_MAX_POS 255
+#define X_MAX_POS 350
 #define X_MIN_POS 0
-#define Y_MAX_POS 212.5
-#define Y_MIN_POS -4 //orig -4
-#define Z_MAX_POS 210
+#define Y_MAX_POS 195
+#define Y_MIN_POS 0 //orig -4
+#define Z_MAX_POS 200
 #define Z_MIN_POS 0.15
 
 // Canceled home position
@@ -74,7 +74,7 @@
 #define Z_PAUSE_LIFT 20
 
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
-#define HOMING_FEEDRATE {3000, 3000, 800, 0}  // set the homing speeds (mm/min) // 3000 is also valid for stallGuard homing. Valid range: 2200 - 3000
+#define HOMING_FEEDRATE {3000, 3000, 400, 0}  // set the homing speeds (mm/min) // 3000 is also valid for stallGuard homing. Valid range: 2200 - 3000
 
 //#define DEFAULT_Y_OFFSET    4.f // Default distance of Y_MIN_POS point from endstop, when the printer is not calibrated.
 /**
@@ -87,13 +87,13 @@
 #define SHEET_PRINT_ZERO_REF_Y -2.f
 
 #define DEFAULT_MAX_FEEDRATE          {200, 200, 12, 120}      // (mm/sec)   max feedrate (M203)
-#define DEFAULT_MAX_ACCELERATION      {1000, 1000, 200, 5000}  // (mm/sec^2) max acceleration (M201)
+#define DEFAULT_MAX_ACCELERATION      {1000, 1000, 100, 5000}  // (mm/sec^2) max acceleration (M201)
 
 
 #define DEFAULT_ACCELERATION          1250   // X, Y, Z and E max acceleration in mm/s^2 for printing moves (M204S)
 #define DEFAULT_RETRACT_ACCELERATION  1250   // X, Y, Z and E max acceleration in mm/s^2 for retracts (M204T)
 
-#define MANUAL_FEEDRATE {2700, 2700, 1000, 100}   // set the speeds for manual moves (mm/min)
+#define MANUAL_FEEDRATE {2700, 2700, 300, 100}   // set the speeds for manual moves (mm/min)
 
 //Silent mode limits
 #define SILENT_MAX_ACCEL  960 // max axxeleration in silent mode in mm/s^2
@@ -121,7 +121,6 @@
 
 // Watchdog support
 #define WATCHDOG
-
 // Power panic
 #define UVLO_SUPPORT
 
@@ -278,7 +277,7 @@
 #endif
 #define HEATER_1_MAXTEMP 305
 #define HEATER_2_MAXTEMP 305
-#define BED_MAXTEMP 125
+#define BED_MAXTEMP 75
 
 #if defined(E3D_PT100_EXTRUDER_WITH_AMP) || defined(E3D_PT100_EXTRUDER_NO_AMP)
 // Define PID constants for extruder with PT100
@@ -397,10 +396,10 @@
 #define MBL_Z_STEP 0.01
 
 // Mesh definitions
-#define MESH_MIN_X 35
-#define MESH_MAX_X 238
-#define MESH_MIN_Y 6
-#define MESH_MAX_Y 202
+#define MESH_MIN_X 50
+#define MESH_MAX_X 310
+#define MESH_MIN_Y 20
+#define MESH_MAX_Y 180
 
 // Mesh upsample definition
 #define MESH_NUM_X_POINTS 7
@@ -412,8 +411,8 @@
 #define MESH_HOME_Z_CALIB 0.2
 #define MESH_HOME_Z_SEARCH 5 //Z lift for homing, mesh bed leveling etc.
 
-#define X_PROBE_OFFSET_FROM_EXTRUDER 23     // Z probe to nozzle X offset: -left  +right
-#define Y_PROBE_OFFSET_FROM_EXTRUDER 5     // Z probe to nozzle Y offset: -front +behind
+#define X_PROBE_OFFSET_FROM_EXTRUDER 40     // Z probe to nozzle X offset: -left  +right
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 0     // Z probe to nozzle Y offset: -front +behind
 #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.4  // Z probe to nozzle Z offset: -below (always!)
 #endif
 
@@ -554,7 +553,7 @@
 #elif defined(E3D_PT100_BED_NO_AMP)
 #define TEMP_SENSOR_BED 148
 #else
-#define TEMP_SENSOR_BED 1
+#define TEMP_SENSOR_BED 7
 #endif
 #define TEMP_SENSOR_PINDA 1
 #define TEMP_SENSOR_AMBIENT 2000

@@ -3930,7 +3930,7 @@ void lcd_wizard(int state) {
 			}
 			break; 
 		case 2: //selftest
-			lcd_show_fullscreen_message_and_wait_P(_i("First, I will run the selftest to check most common assembly problems."));////MSG_WIZARD_SELFTEST c=20 r=8
+			lcd_show_fullscreen_message_and_wait_P(_i("First,  the selftest to check most common assembly problems."));////MSG_WIZARD_SELFTEST c=20 r=8
 			wizard_event = lcd_selftest();
 			if (wizard_event) {
 				calibration_status_store(CALIBRATION_STATUS_XYZ_CALIBRATION);

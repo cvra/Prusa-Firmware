@@ -2347,12 +2347,12 @@ void homeaxis(int axis, uint8_t cnt, uint8_t* pstep)
 		uint8_t back = tmc2130_home_bsteps[axis];
 		if (tmc2130_home_enabled && (orig <= 63))
 		{
-			tmc2130_goto_step(axis, orig, 2, 1000, tmc2130_get_res(axis));
+			tmc2130_goto_step(axis, orig, 2, 10, tmc2130_get_res(axis));
 			if (back > 0)
-				tmc2130_do_steps(axis, back, 1, 1000);
+				tmc2130_do_steps(axis, back, 1, 10);
 		}
 		else
-			tmc2130_do_steps(axis, 8, 2, 1000);
+			tmc2130_do_steps(axis, 8, 2, 10);
 		tmc2130_home_exit();
 #endif //TMC2130
 
